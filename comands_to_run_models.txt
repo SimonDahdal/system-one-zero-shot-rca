@@ -1,0 +1,104 @@
+# Historical deployment examples; server directories are external to this release.
+PYTHONDONTWRITEBYTECODE=1 python -m Context_enriched_experiment.run \
+  --models all \
+  --output-dir Context_enriched_experiment/runs/all_models_run1
+  
+  
+  
+# Laya:
+cd laya
+source .venv/bin/activate
+LAYA_HOST=0.0.0.0 LAYA_PORT=8010 LAYA_DEVICE=cuda LAYA_PRELOAD=0 laya-serve  
+deactivate
+cd ..
+
+
+# nimble:
+cd nimble
+source .venv/bin/activate
+python nimble_server.py
+deactivate
+cd ..
+
+
+# semif
+cd SemIf-OpenJev/
+source .venv/bin/activate
+python semif_server.py
+deactivate
+cd ..
+
+
+# Rizzo-flow
+cd rizzo-flow/
+source .venv/bin/activate
+bash start_rizzo.sh
+deactivate
+cd ..
+
+
+# Von
+cd von
+source .venv/bin/activate
+bash start_von.sh
+deactivate
+cd ..
+
+
+
+# NanoJev
+cd NanoJev/
+source .venv/bin/activate
+bash start_nanojev.sh
+deactivate
+cd ..
+
+
+# LiquidAI_d1_3B
+cd d1-server
+source .venv/bin/activate
+CUDA_VISIBLE_DEVICES=0 python d1_server.py
+deactivate
+cd ..
+
+
+# Decider
+cd decider-server/
+source .venv/bin/activate
+CUDA_VISIBLE_DEVICES=0 DECIDER_MODEL=Mapika/decider-2b DECIDER_DEVICE=cuda DECIDER_IMAGES=0 python -m uvicorn decider.serve:app  --host 0.0.0.0  --port 8018  --workers 1
+deactivate
+cd ..
+
+
+# h2o_lightning_4B
+cd h2o-lightning-server/
+source .venv/bin/activate
+bash start_h2o_lightning.sh
+deactivate
+cd ..
+
+
+# Neohorse
+cd neohorse-server
+source .venv/bin/activate
+bash start_neohorse.sh
+deactivate
+cd ..
+
+
+# d3-flash:
+cd d3-flash-server
+source .venv/bin/activate
+bash start_d3_flash.sh
+deactivate
+cd ..
+
+
+# KEV:
+cd kev
+uv run --extra serve python -m kev.serve --run jaredpalmer/kev-9b --host 0.0.0.0 --port 8009
+
+
+
+
+

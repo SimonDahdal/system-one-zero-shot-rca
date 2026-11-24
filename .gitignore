@@ -1,0 +1,12 @@
+data/
+artifacts/
+results/
+**/runs/
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+*.joblib
+*.log
+.pytest_cache/

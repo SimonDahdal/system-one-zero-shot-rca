@@ -1,0 +1,17 @@
+# Python 3.11+; direct dependencies pinned to the tested RCAEval_venv.
+# Remote model servers are deployed separately; no local GPU runtime is needed.
+
+numpy==2.4.6
+pandas==3.0.6
+joblib==1.6.0
+scikit-learn==1.9.1
+pyarrow==26.0.0
+huggingface-hub==2.2.0
+RCAEval==1.8.0
+
+# Required by RCAEval.utility; not installed by the bare RCAEval package.
+requests==2.34.2
+tqdm==4.70.1
+
+# KEV adapter.
+typesafe-sdk==0.7.5
